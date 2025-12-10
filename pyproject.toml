@@ -1,0 +1,33 @@
+﻿[tool.ruff]
+# Règles activées (équivalent à Flake8 + plus)
+select = [
+    "E",    # Erreurs PEP 8 (Flake8)
+    "F",    # Bugs potentiels (Flake8)
+    "B",    # Sécurité (Flake8-Bandit)
+    "I",    # Importations triées (isort)
+    "DJ",   # Règles spécifiques Django
+    "C90",  # Complexité cyclomatique
+    "W",    # Avertissements PEP 8
+]
+
+# Fichiers/dossiers à ignorer
+exclude = [
+    "migrations/",
+    "__pycache__/",
+    ".ruff_cache/",
+    "env/",
+    "staticfiles/",
+]
+
+# Longueur de ligne (comme Black)
+line-length = 88
+
+# Configuration du formatage (nouvelle syntaxe)
+[tool.ruff.format]
+quote-style = "double"  # Guillemets doubles (comme Black)
+indent-style = "space"  # Indentation avec espaces
+line-ending = "auto"    # Fin de ligne automatique
+
+# Configuration spécifique pour les imports (optionnel)
+[tool.ruff.lint.isort]
+known-first-party = ["base"]  # Remplace "base" par le nom de ton app Django
